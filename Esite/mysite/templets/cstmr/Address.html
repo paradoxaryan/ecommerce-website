@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'cstmr/address.css' %}">
+    <script src="https://kit.fontawesome.com/625e82c339.js" crossorigin="anonymous"></script>    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart-Section</title>
+</head>
+
+
+<style>
+    .cartnav .fa-user:hover{
+    color: #7A77B9;
+    cursor: pointer;
+}
+
+.pop-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: none;
+    z-index: 1;
+}
+
+.pop-cont {
+    
+    /* overflow: hidden; */
+    border-radius: 1%;
+    position: relative;
+    width: 70rem;
+    height: 45rem;
+background-color: #d4d4d4;    opacity: 1;
+    text-align: center;
+    padding: 2rem;
+    display:flex;
+    justify-content:first baseline;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+    font-size: 2rem;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+    z-index: 6 !important;
+}
+
+.form-close  .form-cls{
+    font-size: 3.5rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 0;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+    transform: rotate(45deg);
+}
+.form-cls:hover{
+    cursor: pointer;
+}
+.close{
+    transform: rotate(45deg);
+    font-size: 3.8rem;
+    position: absolute;
+    padding: .5rem;
+    right: 1.5rem;
+    top: 0;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+}
+.close:hover {
+    cursor: pointer;
+}
+
+.form-first{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    margin: 2rem;
+}
+.form-first input{
+    width: 100%;
+    outline: none;
+    text-align: center;
+    height: 5rem;
+    margin-top: 2rem;
+}
+.continue{
+    margin-top: 2rem;
+     border: none;
+background-color: #EA7186;
+width: 100%;
+height: 5rem;
+color: white;
+}
+.continue:hover{
+    cursor: pointer;
+    background-color: #ed6d82;
+}
+.facebook:hover{
+    cursor: pointer;
+}
+.google:hover{
+    cursor: pointer;
+}
+.form-second{
+    display: flex;
+    margin: 2rem;
+}
+.facebook{
+    border-radius: .5rem;
+display: flex;
+justify-content: center;
+align-items: center;
+    margin-left: 2rem;
+     border: none;
+background-color:darkslateblue;
+width: 15rem;
+height: 5rem;
+color: white;
+}
+.facebook .fa-facebook-f{
+font-size: 3rem;
+margin-right: 1rem;
+background-color:transparent;
+}
+.google{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    margin-left: 2rem;
+    border: none;
+background-color:#be0f2c;
+width: 15rem;
+height: 5rem;
+color: white;
+}
+.google .fa-google{
+    font-size: 3rem;
+margin-right: 1rem;
+background-color:transparent;
+
+}
+
+
+
+.pop-up2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: none;
+    z-index: 1;
+}
+
+.form-close2  .form-cls2{
+    font-size: 3.5rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 0;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+    transform: rotate(45deg);
+}
+.form-cls2:hover{
+    cursor: pointer;
+}
+
+</style>
+
+
+
+<body>
+   
+    <div class="cartnav">
+        <img src="{% static 'logo2.png' %}"  class="logo" alt="">
+        <div class="fontlogo">
+        <i class="fa-solid fa-cart-shopping" ></i>
+        
+        <i class="fa-solid fa-truck"></i>
+        <i class="fa-solid fa-credit-card"></i> </div>
+        <i class="fa-solid fa-user"></i>
+    </div>
+
+    <div class="mobile-cartnav">
+        <i class="fa-solid fa-circle-dot"><p>My Bag</p></i>
+        <div class="nav-line"></div>
+        <i class="fa-solid fa-map-location-dot"><p>Address</p></i>
+        <div class="nav-line2"></div>
+        <i class="fa-solid fa-indian-rupee-sign"><p>Payment</p></i>
+    </div>
+</div>
+
+
+
+<div class="heading">
+    
+    
+    
+<div  class="address">
+    
+    
+    
+   
+    
+    <div class="saved-address">
+        <h1>Where You Want To Deliver
+        </h1>
+        
+<div class="col-div">
+    {% for ele in item6 %}
+        <div class="delivery-add">
+            <i class="fa-solid fa-trash"></i>       
+       
+          <h2>{{ele.name}}</h2>
+          <p>{{ele.area}}</p>
+          <p>{{ele.pin_code}}</p>
+          <p>Mobile<span style="font-weight: 200;">{{ele.contact}}</span></p>
+          <button>Deliver to this address</button>
+
+        </div>
+    {% endfor %}
+
+        
+    </div>
+
+<div class="add-more-address">
+    <button class="add-more-address"><i class="fa-solid fa-circle-plus"></i>ADD NEW ADDRESS </button>
+</div>
+
+<div class="write-address">
+    <form method="post">{% csrf_token %}
+        <div class="inp">
+        <label for="Full name*">Full name*</label>
+        <input type="text" name="name" required>
+    </div>
+    <div class="inp">
+        <label for="Mobile">Mobile number*</label>
+        <input type="number" name="mobno" required>
+    </div>
+    <div class="inp">
+        <label for="Pincode">Pincode*</label>
+        <input type="number" name="code" required>
+    </div>
+    <div class="inp">
+        <label for="House">House number*</label>
+        <input type="number" name="hosno" required>
+    </div>
+    <div class="inp">
+        <label for="Address">Address*</label>
+        <div class="lll">
+        <textarea name="" id="" cols="30" rows="10" name="add" required></textarea>
+    </div>
+    </div>
+
+
+
+    <div class="add-default">
+        <p><input type="checkbox"> Make this my default address</p>
+   <button type="submit">Deliver to this address</button>
+    </div>
+</form>
+
+</div>
+    </div>
+
+
+    </div>
+
+<div class="allinone">
+
+    <h1 id="raja" style="margin-bottom:1rem;margin-left:0; margin-top:2rem;">Product Details</h1>
+   
+    {% for ele in item1 %}
+    <div class="cartproduct">
+        <img src="{{ele.item_trend_id.img_id.img.url}}" alt="">
+        <div class="patana">
+            <h1>{{ele.item_trend_id.item_id.name}}</h1>
+        <div class="cart-product-detail">
+        <div class="cartdetail">
+            
+            <p>color: <span>Blue</span></p>
+            <p>quantity:<span> 1</span></p>
+            <p>Size <span>XL</span></p>
+       </div>
+    </div>
+        </div>
+    <h4>Rs. {{ele.item_trend_id.item_id.offer_price}}</h4> 
+    </div>
+    {% endfor %}
+
+
+
+
+
+
+    
+
+
+
+
+<div class="price-details">
+    <h6 style="margin-bottom:1rem;margin-left:0; margin-top:2rem;padding: 0;">Price Details</h6>
+    <div class="all-cal">
+
+        
+
+    <div class="price-calculation">
+        <div class="pricing">
+    <div class="mention-price">
+        <p>Sub Total</p>
+        <p>Discount</p>
+        <p>Donation</p>
+        <h2 style="color:#EA7186;">Total</h2>
+    </div>
+    <div class="price-number">
+       <p> Rs. {{item2}}</p>
+       <p>- Rs. {{item4}}</p>
+       <p>Rs. 10</p>
+       <hr style="color:#EA7186;">
+       <h2 style="color:#EA7186;">Rs. {{item3}}</h2>
+    </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+    
+</div>
+  
+
+
+
+<div class="orderplace">
+    
+    <div class="placing"><button>CONTINUE</button></div>
+    </div>
+
+
+    <hr style="margin-top: 4rem;">    
+
+
+
+
+    <div class="minifooter">
+   <div class="footnav">
+        <ul><a href=""><li>Home</li></a>
+            <a href=""><li>Contact us</li></a>
+                <a href=""><li>Privacy</li></a>
+        </ul>
+    </div>
+
+    <div class="term">    Terms© 2022 Niket_naam_bata.com. All Rights Reserved
+    </div>
+</div>
+
+
+
+
+
+<form action="" method="post">
+    <div class="pop-up">
+        <div class="pop-cont">
+            <div class="form-close">
+           <p class="form-cls">+ </p></div>
+           <div class="form-first">
+           <h1>LOGIN OR SIGNUP</h1>
+              <p>for a quicker checkout</p>
+              <input placeholder="Enter Mobile/Email" type="text" id="mail" name="mail" required>
+              <button class="continue" type="submit">CONTINUE</button>
+            </div>
+
+              <p>Or continue with</p>
+           <div class="form-second">
+              <button class="facebook"><i class="fa-brands fa-facebook-f"></i>facebook</button>
+              <button class="google"><i class="fa-brands fa-google"></i></i>google</button>
+        
+    </div>
+    <p>skip</p>
+            </div>
+        </div>
+    </form>
+    </div>
+
+
+    <form action="" method="post">
+        <div class="pop-up2">
+            <div class="pop-cont">
+                <div class="form-close2">
+               <p class="form-cls2">+ </p></div>
+               <div class="form-first">
+               <h1>LOGIN</h1>
+                  <h2 style="font-size:2rem; padding:1rem;">Your password has been send to your <span>Email</span> or Mobile number</h2>
+                  <input placeholder="Enter the password" type="text" id="mail" name="mail" required>
+                  <button class="continue" type="submit">LOGIN</button>
+                </div>
+                </div>
+            </div>
+        </form>
+        </div>
+
+
+
+
+
+<!-- delete the added product -->
+
+
+<script>
+
+
+
+
+
+   // pop up account
+
+   document.querySelector(".fa-user").addEventListener('click', function() {
+
+document.querySelector(".pop-up").style.display = 'flex';
+
+});
+
+document.querySelector(".form-close").addEventListener('click', function() {
+
+document.querySelector(".pop-up").style.display = 'none';
+document.querySelector("pop-up2").style.display='none';
+});
+
+
+
+// pop up LOGIN
+
+document.querySelector(".continue").addEventListener('click', function() {
+
+document.querySelector(".pop-up2").style.display = 'flex';
+document.querySelector(".pop-up").style.display = 'none'
+});
+
+document.querySelector(".form-close2").addEventListener('click', function() {
+
+document.querySelector(".pop-up2").style.display = 'none';
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.body.querySelector('.add-more-address').addEventListener('click', function() {
+            var write_address = document.body.querySelector('.write-address');
+            if (write_address.style.display == 'none') {
+                write_address.style.display = 'flex';
+            } else {
+                write_address.style.display = 'flex';
+            }
+        }); 
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>{% load static %}
+        <meta charset="UTF-8">
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>    
+        <link rel="stylesheet" href="{% static 'cstmr/stlyenew.css' %}">
+        <script src="https://kit.fontawesome.com/625e82c339.js" crossorigin="anonymous"></script>    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" 
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+         <title>single_product_detail</title>
+    
+    
+        <style>
+
+@media (max-width:910px) {
+    nav .fa-square-xmark {
+        font-size: 3rem;
+      z-index: 5;
+    display:flex;
+    position: absolute;
+    right: 2rem;
+    top: 0rem;
+    }
+}
+
+
+            .fa-xmark{
+    font-size: 3rem;
+    transform: rotate(0deg);
+}
+.search{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+.search{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.search input:focus{
+    border-radius: 2.5rem;
+    background-color: #d3d3d3;
+    color: black;
+}    
+
+
+            select {
+                position: absolute;
+                top: 18%;
+                padding: .5rem;
+                right: 10%;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                border: .2rem solid rgb(185, 0, 247);
+                ;
+            }
+
+
+            .pop-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: none;
+    z-index: 1;
+}
+
+.pop-cont {
+    
+    /* overflow: hidden; */
+    border-radius: 1%;
+    position: relative;
+    width: 70rem;
+    height: 45rem;
+background-color: #d4d4d4;    opacity: 1;
+    text-align: center;
+    padding: 2rem;
+    display:flex;
+    justify-content:first baseline;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+    font-size: 2rem;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+    z-index: 6 !important;
+}
+
+.form-close  .form-cls{
+    font-size: 3.5rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 0;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+    transform: rotate(45deg);
+}
+.form-cls:hover{
+    cursor: pointer;
+}
+.close{
+    transform: rotate(45deg);
+    font-size: 3.8rem;
+    position: absolute;
+    padding: .5rem;
+    right: 1.5rem;
+    top: 0;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+}
+.close:hover {
+    cursor: pointer;
+}
+
+.form-first{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    margin: 2rem;
+}
+.form-first input{
+    width: 100%;
+    outline: none;
+    text-align: center;
+    height: 5rem;
+    margin-top: 2rem;
+}
+.continue{
+    margin-top: 2rem;
+     border: none;
+background-color: #EA7186;
+width: 100%;
+height: 5rem;
+color: white;
+}
+.continue:hover{
+    cursor: pointer;
+    background-color: #ed6d82;
+}
+.facebook:hover{
+    cursor: pointer;
+}
+.google:hover{
+    cursor: pointer;
+}
+.form-second{
+    display: flex;
+    margin: 2rem;
+}
+.facebook{
+    border-radius: .5rem;
+display: flex;
+justify-content: center;
+align-items: center;
+    margin-left: 2rem;
+     border: none;
+background-color:darkslateblue;
+width: 15rem;
+height: 5rem;
+color: white;
+}
+.facebook .fa-facebook-f{
+font-size: 3rem;
+margin-right: 1rem;
+background-color:transparent;
+}
+.google{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    margin-left: 2rem;
+    border: none;
+background-color:#be0f2c;
+width: 15rem;
+height: 5rem;
+color: white;
+}
+.google .fa-google{
+    font-size: 3rem;
+margin-right: 1rem;
+background-color:transparent;
+
+}
+
+
+
+.pop-up2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: none;
+    z-index: 1;
+}
+
+.form-close2  .form-cls2{
+    font-size: 3.5rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 0;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+    transform: rotate(45deg);
+}
+.form-cls2:hover{
+    cursor: pointer;
+}
+
+
+        </style>
+    
+    
+    
+    
+    
+    </head>
+    
+    <body>
+        <div class="head">
+            <nav class="nav">
+                
+                <i class="fa-solid fa-bars"></i>
+                <div class="logo"> <img src="{% static 'logo2.png' %}" alt=""></div>
+            <div class="main-list">
+                <ul class="MenuItems">
+                <i class="fa-solid fa-square-xmark"></i>
+                <div class="idname"><i class="fa-solid fa-user-large"></i><p>Hello! Mr. Aryan Kumar</p></div>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/product" target="_blank">Product</a></li>
+                    <li>About</li>
+                    <li>Offers</li>
+            </ul>
+            </div>
+                    <ul class="icon-nav">
+                     <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <i class="fa-solid fa-user"></i>
+                </ul>
+            
+            </nav>
+            <div class="search animate__animated animate__fadeInDown animate__faster">               <input type="text" placeholder="Search for product..">
+   <i class="fa-solid fa-xmark"></i>
+        </div>
+    
+        <div class="single_product_detail">
+            <div class="detail-product">
+                
+                <div class="bigimage"><img src="{{item1.0.img.url}}" class="pro-img"></div>
+                <div class="smallimage">
+                    {% for ele in item1 %}
+                    <div class="small" onclick="changeimage(this)"><img src="{{ele.img.url}}"></div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="detail">
+                <h2>{{item1.0.item_id.item_unique_id}}</h2>
+                <h1>{{item1.0.item_id.name}}</h1>
+                <h4>₹ {{item1.0.item_id.original_price}} <s>₹ {{item1.0.item_id.offer_price}}</s></h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <div class="size-item">
+                    <span class="active-size"></span>
+                    <div class="size xxl">XXL</div>
+                    <div class="size xl">XL</div>
+                    <div class="size large">L</div>
+                    <div class="size medium">M</div>
+                    <div class="size sm">S</div>
+                </div>
+                <div class="item-color">
+                    {% for ele in item4 %}
+                    <div><a href="/product-detail/{{ele.item_id.id}}/{{ele.item_id.name}}"><img class="blue color-active" src="{{ele.img_id.img.url}}" alt=""></a></div>
+                    {% endfor %}
+                    <div class="blue color-active"></div>
+                    <div class="black"></div>
+                    <div class="gray"></div>
+                </div>
+                <input type="number" value="1">
+                <a href="/addcart/{{item6.id}}" class="btn">Add To Bag</a>
+                <a href="" class="btn">Buy Now</a>
+                <h3>Product Details <i class="fa fa-indent"></i></h3>
+                <br>Made from fine material from america and build for </br>long lasting life in cheap price</p>
+            <div class="aajjj">
+                <button class="more-detail">
+                    show more </button> 
+                <i class="fa-solid fa-circle-chevron-down"></i>
+            </div>
+        
+        
+        
+        
+        
+        </div>
+
+
+
+    </div>    
+
+<div>
+    
+    
+</div>
+
+    <div class="main4">
+
+
+        <div class="detail-all">
+            <i class="fa-solid fa-circle-xmark"></i>
+             <div class="detail-full">
+                 <div class="para">
+                 {% for ele in item7 %}
+        <p>{{ele.detail_id.details_name}}: {{ele.details_info}}</p> 
+        {% endfor %}
+        <!-- <p>Neck: Sweetheart</p>
+        <p>Print: Floral</p>
+        <p>Sleeves: Full</p>
+        <p>Closure: Slip On</p>
+        <p>Please note that the above measurements are garment measurements <br>and not to-fit, body measurements.<br>Refer to our <a href=""> Size Guide </a>for more details
+        </p> -->
+        
+        </div>
+        
+
+        <table style="width:100%">
+        <tr>
+        <th>Size</th>
+        <th>Length</th>
+        <th>Width</th>
+        </tr>
+        
+        <tr>
+         <td>XS</td>
+         <td>58.42 CM</td>
+         <td>58.42 CM</td>
+        </tr>
+        
+        <tr>
+         <td>XS</td>
+         <td>58.42 CM</td>
+         <td>58.42 CM</td>
+        </tr>
+        
+        <tr>
+         <td>XS</td>
+         <td>58.42 CM</td>
+         <td>58.42 CM</td>
+        </tr>
+        
+        <tr>
+         <td>XS</td>
+         <td>58.42 CM</td>
+         <td>58.42 CM</td>
+        </tr>
+        
+        <tr>
+         <td>XS</td>
+         <td>58.42 CM</td>
+         <td>58.42 CM</td>
+        </tr>
+        </table>
+        
+        </div>
+            </div>
+        
+            
+
+
+
+
+<!-- rating box -->
+
+<!-- <div class="customers-rating">
+    <h2>What Our Customers Says</h2>
+    <div class="rating-box">
+        <div class="total-rating">
+            <h1 class="rr">4.0<i class="fa-solid fa-star"></i></h1>
+            <h3><span>2</span> Rating & <span>2</span> Review</>
+        </div>
+        <div class="each-rating">
+           
+            <div class="five">
+            <div>
+                <span>5</span><i class="fa-solid fa-star"></i>
+            </div><div class="line"></div><span>42</span>
+            </div>
+
+
+            <div class="five">
+                <div>
+                    <span>4</span><i class="fa-solid fa-star"></i>
+                </div><div class="line"></div><span>38</span>
+                </div>
+            
+            
+                <div class="five">
+                    <div>
+                        <span>3</span><i class="fa-solid fa-star"></i>
+                    </div><div class="line"></div><span>11</span>
+                    </div>
+
+
+                    <div class="five">
+            <div>
+                <span>2</span><i class="fa-solid fa-star"></i>
+            </div><div class="line2"></div><span>01</span>
+            </div>
+
+
+            <div class="five">
+            <div>
+                <span>1</span><i class="fa-solid fa-star"></i>
+            </div><div class="line2"></div><span>00</span>
+            </div>
+            
+            
+        </div>
+    </div>
+
+
+
+
+    <div class="review">
+        <div class="user">
+            <div class="user1">
+                {% for ele in item5 %}
+                <div class="user-head">
+                    
+                    <div class="top-name"><i class="fa-solid fa-user-check"></i><h4>{{ele.user_id.username}}</h4>
+                    <p><i class="fa-solid fa-circle-check"></i>Verified Buyer</p></div>
+                    <h4><div class="colo">{{ele.rating}} <i class="fa-solid fa-star"></i></div>Good Product</h4>
+                    
+                
+                </div>
+                <div class="comment">
+                    {{ele.review}}     </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="review">
+        <div class="user">
+            <div class="user1">
+                <div class="user-head">
+                    <div class="top-name"><i class="fa-solid fa-user-check"></i><h4>Karan Kumar</h4>
+                    <p><i class="fa-solid fa-circle-check"></i>Verified Buyer</p></div>
+                    <h4><div class="colo2">1<i class="fa-solid fa-star"></i></div>Good Product</h4>
+                
+                </div>
+                <div class="comment">
+                worst product ever buyed</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="review">
+        <div class="user">
+            <div class="user1">
+                <div class="user-head">
+                    <div class="top-name"><i class="fa-solid fa-user-check"></i><h4>Karan Kumar</h4>
+                    <p><i class="fa-solid fa-circle-check"></i>Verified Buyer</p></div>
+                    <h4><div class="colo3">2<i class="fa-solid fa-star"></i></div>Good Product</h4>
+                
+                </div>
+                <div class="comment">
+                    this is good product and i am loving this 
+                </div>
+            </div>
+        </div>
+    
+    <button class="moremore">Show more review <i class="fa-solid fa-arrow-right-long"></i></button>
+    
+    </div>
+
+
+
+
+</div> -->
+
+
+
+
+
+
+
+
+        <h1 >Recommended For You</h1>
+        <div class="recommendation">
+            {% for ele in item2 %}
+            <div class="product">
+                <div class="product-img">
+                    <div class="discount"><p> 50%<br>Discount</p></div>
+                <i class="my-heart fa-solid fa-heart"></i> 
+                <a href="/product-detail/{{ele.item_id.id}}/{{ele.item_id.name}}"><img src="{{ele.img_id.img.url}}" alt=""></a>
+            </div>
+                <h2>{{ele.item_id.name}}</h2>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>₹ {{ele.item_id.offer_price}}</p>
+                <span>₹<s> {{ele.item_id.original_price}}</s></span>
+            </div>
+            {% endfor %}
+            
+            
+         
+         
+        </div>
+        <div class="new-button"><button>View More<i class="fa-solid fa-arrow-right"></i></button></div>
+    </div>
+
+    </div>
+        <!----------------FOOTER------------------------>
+
+        <div class="footer">
+            <div class="container2">
+                <div class="col6">
+                    <img src="{% static 'logo2.png' %}" alt="">
+                    <p>Our Purpose Is To Sustainably Make The Pleasure and<br> Benefits of Sports Accessible to the Many</p>
+                </div>
+                <div class="col6">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="col6">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>YouTube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2020 - Aryan Kumar</p>
+        </div>
+
+
+
+
+
+        <form action="" method="post">
+            <div class="pop-up">
+                <div class="pop-cont">
+                    <div class="form-close">
+                   <p class="form-cls">+ </p></div>
+                   <div class="form-first">
+                   <h1>LOGIN OR SIGNUP</h1>
+                      <p>for a quicker checkout</p>
+                      <input placeholder="Enter Mobile/Email" type="text" id="mail" name="mail" required>
+                      <button class="continue" type="submit">CONTINUE</button>
+                    </div>
+        
+                      <p>Or continue with</p>
+                   <div class="form-second">
+                      <button class="facebook"><i class="fa-brands fa-facebook-f"></i>facebook</button>
+                      <button class="google"><i class="fa-brands fa-google"></i></i>google</button>
+                
+            </div>
+            <p>skip</p>
+                    </div>
+                </div>
+            </form>
+            </div>
+        
+        
+            <form action="" method="post">
+                <div class="pop-up2">
+                    <div class="pop-cont">
+                        <div class="form-close2">
+                       <p class="form-cls2">+ </p></div>
+                       <div class="form-first">
+                       <h1>LOGIN</h1>
+                          <h2 style="font-size:2rem; padding:1rem;">Your password has been send to your <span>Email</span> or Mobile number</h2>
+                          <input placeholder="Enter the password" type="text" id="mail" name="mail" required>
+                          <button class="continue" type="submit">LOGIN</button>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+<script>
+
+
+    // pop up account
+
+    document.querySelector(".fa-user").addEventListener('click', function() {
+
+document.querySelector(".pop-up").style.display = 'flex';
+
+});
+
+document.querySelector(".form-close").addEventListener('click', function() {
+
+document.querySelector(".pop-up").style.display = 'none';
+document.querySelector("pop-up2").style.display='none';
+});
+
+
+
+// pop up LOGIN
+
+document.querySelector(".continue").addEventListener('click', function() {
+
+document.querySelector(".pop-up2").style.display = 'flex';
+document.querySelector(".pop-up").style.display = 'none'
+});
+
+document.querySelector(".form-close2").addEventListener('click', function() {
+
+document.querySelector(".pop-up2").style.display = 'none';
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+    document.querySelector(".pop").addEventListener('click', function() {
+
+        document.querySelector(".pop-up").style.display = 'flex';
+
+    });
+
+    document.querySelector('.close').addEventListener('click', function() {
+
+        document.querySelector('.pop-up').style.display = 'none';
+    });
+
+
+    function changeimage(event) {
+        document.querySelector(".pro-img").src = event.children[0].src;
+    }
+    document.body.querySelector('.log').addEventListener('click', function() {
+
+        document.body.querySelector('.login-form').style.transform = 'translate(32.5rem)';
+
+        document.body.querySelector('#reg-form').style.transform = 'translate(32.5rem)';
+        document.body.querySelector('#indicator').style.transform = 'translate(0rem)';
+    });
+
+
+    document.body.querySelector('.reg').addEventListener('click', function() {
+
+        document.body.querySelector('.login-form').style.transform = 'translate(0rem)';
+
+        document.body.querySelector('#reg-form').style.transform = 'translate(0rem)';
+        document.body.querySelector('#indicator').style.transform = 'translate(10.5rem)';
+
+    });
+</script>
+
+<script type="text/javascript">
+    document.body.querySelector('.menu').addEventListener('click', function() {
+        // document.body.querySelector('.MenuItems').style.display = 'flex';
+        var menu = document.body.querySelector('.MenuItems');
+        if (menu.style.display == 'flex') {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = 'flex';
+        }
+    });
+    document.body.querySelector('#slider').addEventListener('click', function() {
+        menu.style.display = 'none';
+    });
+</script>
+<script>
+    var xxl = document.body.querySelector('.xxl');
+    var xl = document.body.querySelector('.xl');
+    var large = document.body.querySelector('.large');
+    var medium = document.body.querySelector('.medium');
+    var small = document.body.querySelector('.sm');
+
+    xxl.addEventListener('click', function() {
+        xl.classList.remove("active-size");
+        xxl.classList.add("active-size");
+        large.classList.remove("active-size");
+        small.classList.remove("active-size");
+        medium.classList.remove("active-size");
+
+    });
+    xl.addEventListener('click', function() {
+        xxl.classList.remove("active-size");
+        xl.classList.add("active-size");
+        large.classList.remove("active-size");
+        small.classList.remove("active-size");
+        medium.classList.remove("active-size");
+
+    });
+    small.addEventListener('click', function() {
+        xxl.classList.remove("active-size");
+        medium.classList.remove("active-size");
+        large.classList.remove("active-size");
+        small.classList.add("active-size");
+        xl.classList.remove("active-size");
+
+    });
+    large.addEventListener('click', function() {
+        xxl.classList.remove("active-size");
+        large.classList.add("active-size");
+        xl.classList.remove("active-size");
+        small.classList.remove("active-size");
+        medium.classList.remove("active-size");
+
+    });
+    medium.addEventListener('click', function() {
+        xxl.classList.remove("active-size");
+        medium.classList.add("active-size");
+        large.classList.remove("active-size");
+        small.classList.remove("active-size");
+        xl.classList.remove("active-size");
+
+    });
+
+
+    var black = document.body.querySelector('.black');
+    var blue = document.body.querySelector('.blue');
+    var gray = document.body.querySelector('.gray');
+
+    gray.addEventListener('click', function() {
+        blue.classList.remove("color-active");
+        black.classList.remove("color-active");
+        gray.classList.add("color-active");
+
+    });
+    black.addEventListener('click', function() {
+        blue.classList.remove("color-active");
+        gray.classList.remove("color-active");
+        black.classList.add("color-active");
+
+    });
+    blue.addEventListener('click', function() {
+        black.classList.remove("color-active");
+        blue.classList.add("color-active");
+        gray.classList.remove("color-active");
+
+    });
+</script>
+
+
+
+
+<!-- image zo0ming -->
+
+
+<script>
+    // CREDITS : https://www.cssscript.com/image-zoom-pan-hover-detail-view/
+var addZoom = (target) => {
+  // (A) GET CONTAINER + IMAGE SOURCE
+  let container = document.getElementById(target),
+      imgsrc = container.currentStyle || window.getComputedStyle(container, false);
+      imgsrc = imgsrc.backgroundImage.slice(4, -1).replace(/"/g, "");
+ 
+  // (B) LOAD IMAGE + ATTACH ZOOM
+  let img = new Image();
+  img.src = imgsrc;
+  img.onload = () => {
+    // (B1) CALCULATE ZOOM RATIO
+    let ratio = img.naturalHeight / img.naturalWidth,
+        percentage = ratio * 100 + "%";
+ 
+    // (B2) ATTACH ZOOM ON MOUSE MOVE
+    container.onmousemove = (e) => {
+      let rect = e.target.getBoundingClientRect(),
+          xPos = e.clientX - rect.left,
+          yPos = e.clientY - rect.top,
+          xPercent = xPos / (container.clientWidth / 100) + "%",
+          yPercent = yPos / ((container.clientWidth * ratio) / 100) + "%";
+ 
+      Object.assign(container.style, {
+        backgroundPosition: xPercent + " " + yPercent,
+        backgroundSize: img.naturalWidth + "px"
+      });
+    };
+ 
+    // (B3) RESET ZOOM ON MOUSE LEAVE
+    container.onmouseleave = (e) => {
+      Object.assign(container.style, {
+        backgroundPosition: "center",
+        backgroundSize: "cover"
+      });
+    };
+  }
+};
+ 
+// (C) ATTACH FOLLOW ZOOM
+window.onload = () => { addZoom(".bigimage"); };
+</script>
+    
+
+
+// <script>
+// // Initiate zoom effect:
+// imageZoom("myimage", "myresult");
+// </script>
+
+
+<!-- searching -->
+<script>
+    document.body.querySelector('.fa-magnifying-glass').addEventListener('click', function() {
+        // document.body.querySelector('.MenuItems').style.display = 'flex';
+        var menu = document.body.querySelector('.search');
+        if (menu.style.display == 'flex') {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = 'flex';
+        }
+    }); 
+    document.body.querySelector('.fa-xmark').addEventListener('click', function() {
+        // document.body.querySelector('.MenuItems').style.display = 'flex';
+        var menu = document.body.querySelector('.search');
+        if (menu.style.display == 'flex') {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = 'none';
+        }
+    });
+    // heart 
+    heart = document.body.querySelector('.my-heart');
+   heart.addEventListener('click',function(){
+      
+    if (heart.style.color == ' #000') {
+            heart.style.color = '#EA7186';
+        } else {
+            menu.style.color = '#000';
+        }
+    
+    }); 
+</script>
+
+
+<script type="text/javascript">
+document.body.querySelector('.fa-bars').addEventListener('click', function() {
+    // document.body.querySelector('.MenuItems').style.display = 'flex';
+    var menu = document.body.querySelector('.main-list>ul');
+    if (menu.style.display == 'flex') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'flex';
+    }
+});
+document.body.querySelector('.fa-square-xmark ').addEventListener('click',function(){
+    var menu = document.body.querySelector('.main-list>ul');
+    if (menu.style.display == 'flex') {
+        menu.style.display = 'none';
+    } 
+});
+
+
+
+
+// more details
+
+
+var show_more = document.body.querySelector('.aajjj');
+var buttons = document.body.querySelector('.more-detail');
+var detailss = document.body.querySelector('.detail-all'); 
+var chevron = document.body.querySelector('.fa-circle-chevron-down'); 
+
+document.body.querySelector('.fa-circle-xmark').addEventListener('click',()=>{
+detailss.style.display = 'none';
+});
+
+
+    show_more.addEventListener('click', function() {
+    if (detailss.style.display == 'flex') {
+        detailss.style.display = 'none';
+        chevron.style.transform='rotate(0deg)'
+
+    } else {
+        detailss.style.display = 'flex';
+        buttons.innerHTML="show less";
+        chevron.style.transform='rotate(180deg)'
+    }
+});
+
+</script>
+
+</body>
+
+</html>

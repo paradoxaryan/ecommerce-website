@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'cstmr/cartsection.css' %}">
+    <script src="https://kit.fontawesome.com/625e82c339.js" crossorigin="anonymous"></script>    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart-Section</title>
+</head>
+
+
+<style>
+    .cartproduct h1{
+        width: 19rem;
+        
+        padding-bottom: 1rem;
+    }
+    .price-details{background-color: white;}
+    .discount-minus{
+        color: red;
+    }
+    .cartproduct a{
+    text-decoration: none;
+    font-size: 1.6rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 2rem;
+}
+
+.cartnav .fa-user:hover{
+    color: #7A77B9;
+    cursor: pointer;
+}
+
+.pop-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: none;
+    z-index: 1;
+}
+
+.pop-cont {
+    
+    /* overflow: hidden; */
+    border-radius: 1%;
+    position: relative;
+    width: 70rem;
+    height: 45rem;
+background-color: #d4d4d4;    opacity: 1;
+    text-align: center;
+    padding: 2rem;
+    display:flex;
+    justify-content:first baseline;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+    font-size: 2rem;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+    z-index: 6 !important;
+}
+
+.form-close  .form-cls{
+    font-size: 3.5rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 0;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+    transform: rotate(45deg);
+}
+.form-cls:hover{
+    cursor: pointer;
+}
+.close{
+    transform: rotate(45deg);
+    font-size: 3.8rem;
+    position: absolute;
+    padding: .5rem;
+    right: 1.5rem;
+    top: 0;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+}
+.close:hover {
+    cursor: pointer;
+}
+
+.form-first{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    margin: 2rem;
+}
+.form-first input{
+    width: 100%;
+    outline: none;
+    text-align: center;
+    height: 5rem;
+    margin-top: 2rem;
+}
+.continue{
+    margin-top: 2rem;
+     border: none;
+background-color: #EA7186;
+width: 100%;
+height: 5rem;
+color: white;
+}
+.continue:hover{
+    cursor: pointer;
+    background-color: #ed6d82;
+}
+.facebook:hover{
+    cursor: pointer;
+}
+.google:hover{
+    cursor: pointer;
+}
+.form-second{
+    display: flex;
+    margin: 2rem;
+}
+.facebook{
+    border-radius: .5rem;
+display: flex;
+justify-content: center;
+align-items: center;
+    margin-left: 2rem;
+     border: none;
+background-color:darkslateblue;
+width: 15rem;
+height: 5rem;
+color: white;
+}
+.facebook .fa-facebook-f{
+font-size: 3rem;
+margin-right: 1rem;
+background-color:transparent;
+}
+.google{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    margin-left: 2rem;
+    border: none;
+background-color:#be0f2c;
+width: 15rem;
+height: 5rem;
+color: white;
+}
+.google .fa-google{
+    font-size: 3rem;
+margin-right: 1rem;
+background-color:transparent;
+
+}
+
+
+
+.pop-up2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: none;
+    z-index: 1;
+}
+
+.form-close2  .form-cls2{
+    font-size: 3.5rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 0;
+    font-family: custom;
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+    transform: rotate(45deg);
+}
+.form-cls2:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+@media (max-width:740px) {
+.cartitems{
+    display: flex;
+    flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+}
+    .my-shopping-bag{
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+.cartproduct{
+    width: 95%;
+margin: 0;
+margin-top: 1rem;
+}
+.price-details{
+background-color: white;
+display: flex;
+flex-direction: column;
+justify-content:flex-start;
+margin-top: 4rem;
+margin-bottom: 4rem;
+align-items: center;
+    width: 95%;
+    height: auto;
+}
+.fa-user-large{
+    color: #7A77B9;
+}
+.fa-user:hover{
+cursor: pointer;
+}
+
+
+
+
+
+
+
+@media (max-width:254px) {
+    html{
+        font-size: 4.5px;
+    }
+   .patana input{
+    width: 6rem;
+text-align: center;
+   
+}
+
+
+}
+
+
+}
+
+h4{
+    color: black;
+    font-size: 1.5rem;
+}
+
+
+@media (max-width:311px) {
+    .cartproduct h1{
+        width: 19rem;
+     font-size: 2rem;   
+        padding-bottom: 1rem;
+    }
+}
+@media (max-width:296px) {
+    .cartproduct h1{
+        width: 19rem;
+     font-size: 1.5rem;   
+        padding-bottom: 1rem;
+    }
+
+@media (max-width:225px) {
+    .cartproduct h1{
+        width: 15rem;
+    }
+}
+}
+
+@media (max-width:260px) {
+    
+}
+</style>
+
+<body>
+   
+    <div class="cartnav">
+        <img src="{% static 'logo2.png' %}"  class="logo" alt="">
+        <div class="fontlogo">
+        <i class="fa-solid fa-cart-shopping" ></i>
+        
+        <i class="fa-solid fa-truck"></i>
+        <i class="fa-solid fa-credit-card"></i> </div>
+        <i  class="fa-solid fa-user"></i>
+    </div>
+
+    <div class="mobile-cartnav">
+        <i class="fa-solid fa-circle-dot"><p>My Bag</p></i>
+        <div class="nav-line"></div>
+        <i class="fa-solid fa-map-location-dot"><p>Address</p></i>
+        <div class="nav-line2"></div>
+        <i class="fa-solid fa-indian-rupee-sign"><p>Payment</p></i>
+    </div>
+
+
+<div class="cartitems">
+
+    <div class="my-shopping-bag">
+        <h1>My Shopping Bag {{item5}} Items</h1>
+        {% for ele in item1 %}
+
+        <div class="cartproduct">
+            <img src="{{ele.item_trend_id.img_id.img.url}}" alt="">
+            <div class="patana">
+                <h1>{{ele.item_trend_id.item_id.name}}</h1>
+            <div class="cart-product-detail">
+            <div class="cartdetail">
+                
+                <p>color: <span>Blue</span></p>
+        <p>Size</p>
+            <select name="Size" id="">
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+            </select>   
+            <p>Quantity</p>
+            <input type="number" value="1">
+        </div>
+        </div>
+            </div>
+        <h4><span style="color:red;font-weight:bold;padding: 1rem;"> Rs. <s>{{ele.item_trend_id.item_id.original_price}} </s> </span> Rs. {{ele.item_trend_id.item_id.offer_price}}</h4> 
+        <i class="fa-solid fa-trash" ><a href="delcartitem/{{ele.id}}"></a></i>     
+
+    </div>
+    {% endfor %}
+
+    </div>
+
+
+<div class="price-details">
+<h1>Price Details</h1>
+<div class="all-cal">
+    <div class="donation">
+    <h1>Donation <br><p>Extra Rs.10 (This donation is towards NGO Ssrishti that <br>is providing food and hygiene essentials to migrant <br>labors during the COVID-19 lockdown)</p>
+    </h1>
+    <input type="checkbox">
+</div>
+<form method="post">{% csrf_token %}
+<div class="add-coupon">
+<h2><i class="fa-solid fa-circle-plus"></i> Enter Coupon Code</h2><input type="text" name="code">
+<button type="submit">Apply</button>
+</div>
+</form>
+
+<!-- <div class="gift-card">
+    
+<h2><i class="fa-solid fa-circle-plus"></i> Reedem Gift Card</h2><input type="text">
+</div> -->
+
+<div class="price-calculation">
+    <div class="pricing">
+<div class="mention-price">
+    <p>Sub Total</p>
+    <p>Discount</p>
+    <p>Donation</p>
+    <h2>Total</h2>
+</div>
+<div class="price-number">
+   <p> Rs. {{item2}}</p>
+   <p class="discount-minus">- Rs. {{item4}}</p>
+   <p>Rs. 10</p>
+   <h2>Rs. {{item3}}</h2>
+</div>
+    </div>
+    <button><a style="text-decoration:none; color:white;" href="/chooseaddress">Place Order</a></button>
+</div>
+</div>
+</div>
+
+
+</div>
+
+<div class="orderplace">
+<div class="ordering">Rs. 12435</div>
+<div class="placing"><button>Place Order</button></div>
+</div>
+  <!----------------FOOTER------------------------>
+
+  <div class="footer">
+    <div class="container2">
+        <div class="col6">
+            <img src="logo2.png" alt="">
+            <p>Our Purpose Is To Sustainably Make The Pleasure and<br> Benefits of Sports Accessible to the Many</p>
+        </div>
+        <div class="col6">
+            <h3>Useful Links</h3>
+            <ul>
+                <li>Coupons</li>
+                <li>Blog Post</li>
+                <li>Return Policy</li>
+                <li>Join Affiliate</li>
+            </ul>
+        </div>
+        <div class="col6">
+            <h3>Follow Us</h3>
+            <ul>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+                <li>YouTube</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <p class="copyright">Copyright 2020 - Aryan Kumar</p>
+</div>
+
+
+
+
+
+<form action="" method="post">
+    <div class="pop-up">
+        <div class="pop-cont">
+            <div class="form-close">
+           <p class="form-cls">+ </p></div>
+           <div class="form-first">
+           <h1>LOGIN OR SIGNUP</h1>
+              <p>for a quicker checkout</p>
+              <input placeholder="Enter Mobile/Email" type="text" id="mail" name="mail" required>
+              <button class="continue" type="submit">CONTINUE</button>
+            </div>
+
+              <p>Or continue with</p>
+           <div class="form-second">
+              <button class="facebook"><i class="fa-brands fa-facebook-f"></i>facebook</button>
+              <button class="google"><i class="fa-brands fa-google"></i></i>google</button>
+        
+    </div>
+    <p>skip</p>
+            </div>
+        </div>
+    </form>
+    </div>
+
+
+    <form action="" method="post">
+        <div class="pop-up2">
+            <div class="pop-cont">
+                <div class="form-close2">
+               <p class="form-cls2">+ </p></div>
+               <div class="form-first">
+               <h1>LOGIN</h1>
+                  <h2 style="font-size:2rem; padding:1rem;">Your password has been send to your <span>Email</span> or Mobile number</h2>
+                  <input placeholder="Enter the password" type="text" id="mail" name="mail" required>
+                  <button class="continue" type="submit">LOGIN</button>
+                </div>
+                </div>
+            </div>
+        </form>
+        </div>
+
+<!-- delete the added product -->
+
+
+<script>
+    
+    function deleteproduct(event) {
+                event.querySelector(".cartproduct");
+            }
+
+
+
+
+   // pop up account
+
+   document.querySelector(".fa-user").addEventListener('click', function() {
+
+document.querySelector(".pop-up").style.display = 'flex';
+
+});
+
+document.querySelector(".form-close").addEventListener('click', function() {
+
+document.querySelector(".pop-up").style.display = 'none';
+document.querySelector("pop-up2").style.display='none';
+});
+
+
+
+// pop up LOGIN
+
+document.querySelector(".continue").addEventListener('click', function() {
+
+document.querySelector(".pop-up2").style.display = 'flex';
+document.querySelector(".pop-up").style.display = 'none'
+});
+
+document.querySelector(".form-close2").addEventListener('click', function() {
+
+document.querySelector(".pop-up2").style.display = 'none';
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

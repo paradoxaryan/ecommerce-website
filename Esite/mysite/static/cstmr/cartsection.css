@@ -1,0 +1,547 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: custom;
+    src: url(go.ttf);
+}
+
+html{
+font-family: custom;
+    font-size: 10px;
+}
+.mobile-cartnav{
+    display: none;
+}
+.cartnav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    background-color:#EBE8E7;
+}
+.cartnav img {
+
+    margin-left: 1rem;
+    width: 18rem;
+    height: 5em;
+}
+
+.fontlogo{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cartnav .fa-solid{
+margin: 4rem;
+    font-size: 2.5rem;
+}
+.cartnav .fa-user{
+padding-right: 4rem;
+}
+.fontlogo .fa-cart-shopping{
+    border-radius:2%;
+    color: #EA7186;
+    padding: 1.3rem;
+ border-bottom: .4rem solid #EA7186;
+}
+.fa-trash{
+    font-size: 1.6rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 1.5rem;
+}
+
+h4{
+    color: #EA7186;
+    font-size: 1.5rem;
+}
+.cartitems{
+    display: flex;
+justify-content:space-around;
+margin-top: 2rem;
+    width: 100%;
+}
+.cartproduct{
+    background-color: #EBE8E7;
+    width:50vw ;
+    margin-left: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    justify-content:space-between;  
+padding: 1rem;
+}
+.cartproduct img{
+    width: 5rem;
+    height: 8rem;
+margin-right: 1rem;
+}
+.patana{
+    position: absolute;
+    margin-left: 6rem;
+}
+.cart-product-detail{
+    display: flex;
+    justify-content:space-between;
+}
+.cartdetail{
+    display: flex;
+}
+.cartproduct input{
+    width: 3.5rem;
+}
+
+
+.add-coupon{
+    margin: 1rem;
+}
+.gift-card{
+    margin: 1rem;
+}
+
+.price-details{
+    width: 30vw;
+    height: 88vh;
+}
+.orderplace{
+    display: none;
+}
+.donation{
+    display: flex;
+  justify-content: flex-start;
+}
+.donation h1{
+   font-size: 2rem;
+   padding: 1rem;
+}
+.donation p{
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 1rem;
+}
+.donation input {
+     padding: 3rem;
+    margin-left: 3rem;
+}
+
+.fa-trash:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.price-calculation{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.price-calculation p{
+    font-size: 1.4rem;
+}
+.pricing{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pricing h2,p{
+    padding: .5rem;
+}
+
+.price-calculation button {
+    background: black;
+    margin-top: 2rem;
+    transition: ease-in-out .3s;
+    width:auto;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(78, 78, 78);
+}
+.all-cal{
+padding: 2rem;
+width: 100%;
+height: auto;
+padding-top: 0;
+margin-top: 2rem;
+background-color: #EBE8E7;
+
+}
+
+
+
+
+
+
+.footer {
+    background: #d4d4d4;
+    font-size: 1.4rem;
+    font-family: custom;
+    font-weight: bolder;
+    font-variant: small-caps;
+    letter-spacing: .1rem;
+    padding: 6rem 0 2rem;
+}
+
+.col6 p {
+    line-height: 2rem;
+    color: black;
+}
+
+.footer h3 {
+    color: black;
+    margin-bottom: 2rem;
+}
+.col6 li:hover{
+   
+    cursor: pointer;
+} 
+.col6 .fa-brands{
+font-size: 2rem;
+}
+
+.container2 {
+    color: black;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.col6 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.col6 img {
+    width: 18rem;
+    margin-bottom: 2rem;
+}
+
+.col6 li {
+    margin: 1rem;
+    line-height: 2rem;
+    list-style: none;
+}
+
+.applogo {
+    margin-top: 2rem;
+}
+
+.applogo img {
+    width: 14rem;
+}
+
+.footer hr {
+    border: none;
+    background: #b5b5b5;
+    height: 1px;
+    margin: 2rem 0;
+}
+
+.product:hover {
+    cursor: pointer;
+}
+.copyright {
+    color: black;
+    text-align: center;
+}
+
+ 
+.patana input{
+   text-align: center;}
+
+
+/* responsive */
+
+
+
+
+
+
+
+
+
+
+@media (max-width:980px) {
+    .cartproduct{
+        background-color: #EBE8E7;
+        width:50vw ;
+        margin-left: 0;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+        display: flex;
+        justify-content:space-between;  
+    padding: 1rem;
+    }
+    .price-details{
+        width: 40vw;
+        height: 88vh;
+    }
+    
+}
+
+
+
+@media (max-width:740px) {
+.cartitems{
+    display: flex;
+    flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+    .my-shopping-bag{
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+.cartproduct{
+    width: 95%;
+margin: 0;
+margin-top: 1rem;
+}
+.price-details{
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+    width: 95%;
+}
+
+
+.orderplace{
+    position: fixed;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+    bottom: 0;
+    background: black;
+    margin-top: 2rem;
+    transition: ease-in-out .3s;
+    width: 100%;
+    height: 6rem;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+  
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+justify-content: space-between;
+align-items: center;
+}
+.placing button {
+    text-align: center;
+   color: black;
+   font-family: custom;
+font-size: 1.5rem;
+font-weight: 300;
+   border: none;
+   border: none;
+   width: 100%;
+   height: 100%;
+   background-color:rgba(255, 255, 255, 0);
+    text-decoration: none;
+}
+.placing button:hover{
+    cursor: pointer;
+    transition: ease-in-out .5s;
+    background-color: #fc637c;
+}
+.ordering:hover{
+    cursor: pointer;
+}
+.price-calculation button{
+    display: none;
+}
+.ordering{
+display: flex;
+justify-content: center;
+align-items: center;
+    font-size: 1.3rem;
+background-color:black;
+width: 100%;
+height: 100%;
+text-align: center;
+}
+.placing{
+    height: 100%;
+    width: 100%;
+    background-color: #EA7186;
+}
+
+.cartnav .fontlogo{
+    display: none;   
+}
+.cartnav .fa-solid{
+    display: none;
+}
+.fa-map-location-dot{
+    color: gray;
+}
+.fa-indian-rupee-sign{
+    color: gray;
+}
+.cartnav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mobile-cartnav
+{
+margin-top: 1rem;
+    display: block;
+display: flex;
+
+justify-content:center;
+align-items: center;
+width: 100%;
+height: 15vh;
+background-color:#EBE8E7;
+}
+.mobile-cartnav .fa-solid{
+    font-size: 2.5rem;
+    padding: .3rem;
+}
+.mobile-cartnav p{
+    text-transform: lowercase;
+  font-family: Arial, Helvetica, sans-serif;
+    margin-left: -1.2rem;
+    font-size: 1rem;
+    position:absolute;
+}
+.nav-line{
+    height: .3rem;
+    width: 25rem;
+    background-color:gray;
+}
+
+.nav-line2{
+    height: .3rem;
+    width: 25rem;
+    background-color:gray;
+}
+
+}
+@media (max-width:740px) {
+    
+    html{
+        font-size: 9px;
+    }
+}
+@media (max-width:630px) {
+    
+    html{
+        font-size: 8px;
+
+    }
+    .patana input{
+        width: 4rem;
+    text-align: center;   
+    }
+    
+}
+
+@media (max-width:550px) {
+    .cartproduct{
+    padding: 2rem;
+    
+}
+.cartproduct img{
+    width: 7rem;
+    height: 10rem;
+    background-color: cadetblue;
+margin-right: 2rem;
+}
+.patana{
+    position: absolute;
+    margin-left: 8rem;
+}
+
+
+.mobile-cartnav
+{
+margin-top: 1rem;
+    display: block;
+display: flex;
+
+justify-content:center;
+align-items: center;
+width: 100%;
+height: 15vh;
+padding: 6rem;
+background-color:#EBE8E7;
+}
+}
+
+@media (max-width:400px) {
+    html{
+        font-size: 7px;
+    }
+   
+}
+
+@media (max-width:354px) {
+    html{
+        font-size: 6.5px;
+    }
+   .patana input{
+    width: 4rem;
+text-align: center;
+   
+}
+}
+
+
+
+@media (max-width:330px) {
+    html{
+        font-size: 6px;
+    }
+   .patana input{
+    width: 4rem;
+text-align: center;
+   
+}
+}
+
+@media (max-width:280px) {
+    html{
+        font-size: 5.5px;
+    }
+   .patana input{
+    width: 5rem;
+text-align: center;
+   
+}
+}
+
+@media (max-width:254px) {
+    html{
+        font-size: 4.5px;
+    }
+   .patana input{
+    width: 6rem;
+text-align: center;
+   
+}
+}
